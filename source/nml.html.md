@@ -1,9 +1,9 @@
 ---
-title: Newsletter2Go API Documentation
+title: Newsletter Markup Language Documentation
 
 language_tabs:
-  - php
-  - javascript
+  - yaml
+  - json
 
 toc_footers:
   - <a href='https://ui.newsletter2go.com'>Sign Up for a Developer Key</a>

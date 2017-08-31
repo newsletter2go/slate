@@ -1,0 +1,51 @@
+$n2g-nav: #282E34;
+$n2g-nav-dark: #22262C;
+$n2g-nav-light: #5F666B;
+$brand-primary: #00baff; // blue
+$brand-success: #19d76e; // green
+$brand-info: darken(#d8dee4, 5%); // gray
+$brand-warning: #FFA508; // orange (not from gentlemen)
+$brand-danger: #fc5f09; // red
+$white: #ffffff;
+$black: #000000;
+$gray-light: darken(#d8dee4, 5%);
+$gray-lighter: #d8dee4;
+$gray: darken(#afbac3, 5%);
+$gray-dark: #5f666b;
+
+$nav-bg: $n2g-nav;
+$examples-bg: $n2g-nav;
+$code-bg: $n2g-nav;
+$code-annotation-bg: $n2g-nav-dark;
+$nav-subitem-bg: $n2g-nav-dark;
+$nav-active-bg: $brand-primary;
+$lang-select-border: #ff00ff;
+$lang-select-bg: $n2g-nav-light;
+$lang-select-active-bg: $n2g-nav;
+$lang-select-pressed-bg: $n2g-nav-dark;
+$main-bg: #ffffff;
+
+$main-text: $gray-dark; // main content text color
+$nav-text: #fff;
+$nav-active-text: #fff;
+$lang-select-text: $gray-lighter; // color of unselected language tab text
+$lang-select-active-text: #ffffff; // color of selected language tab text
+$lang-select-pressed-text: #ffffff; // color of language tab text when mouse is pressed
+
+
+%default-font {
+  font-family: "proxima_nova", sans-serif;
+  font-size: 14px;
+}
+
+%header-font {
+  @extend %default-font;
+  font-weight: normal;
+}
+
+$nav-active-shadow: transparent;
+$nav-footer-border-color: transparent;
+$nav-embossed-border-top: transparent;
+$nav-embossed-border-bottom: transparent;
+$main-embossed-text-shadow: 0px transparent;
+$search-box-border-color: #666 !default;
