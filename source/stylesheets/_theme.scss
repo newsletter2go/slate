@@ -20,16 +20,15 @@ aside {
   display: block;
 }
 
-.tocify-wrapper {
+.toc-wrapper {
   font-size: 14px;
 }
 
-.tocify-wrapper .tocify-item > a, .tocify-wrapper .toc-footer li {
-  color: #ffffff;
+.toc-wrapper .toc-h1.toc-link, .toc-wrapper .toc-footer li {
   padding: 5px 15px;
 }
 
-.tocify-wrapper .tocify-subheader .tocify-item > a {
+.toc-h2.toc-link {
   font-weight: 300;
   font-size: 13px;
 }
@@ -48,7 +47,7 @@ blockquote {
   font-size: 12px;
 }
 
-.tocify-wrapper .search-results.visible {
+.toc-wrapper .search-results.visible {
   height: auto;
   background: $n2g-nav-dark;
 }
