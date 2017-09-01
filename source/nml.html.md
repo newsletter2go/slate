@@ -5,15 +5,17 @@ language_tabs:
   - yaml
   - json
 
-toc_footers:
-  - <a href='https://ui.newsletter2go.com'>Sign Up for a Developer Key</a>
-
 includes:
-  - introduction
-  - authentication
-  - restful
-  - recipients
-  - errors
+  - nml/introduction
+  - nml/email-client-support
+  - nml/structure
+  - nml/element-types
+  - nml/elements-rows
+  - nml/elements-columns
+  - nml/elements-text
+  - nml/elements-image
+  - nml/element-layout
+  - nml/example
 
 search: true
 ---
