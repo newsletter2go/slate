@@ -31,6 +31,8 @@ aside {
 .toc-h2.toc-link {
   font-weight: 300;
   font-size: 13px;
+  padding-top: 2px;
+  padding-bottom: 2px;
 }
 
 .lang-selector {
@@ -40,6 +42,9 @@ aside {
 blockquote {
   border-left: none;
   font-style: normal;
+  code {
+    background: none;
+  }
 }
 
 .lang-selector a {
@@ -116,11 +121,11 @@ table > thead > tr > td, table > tbody > tr > th, table > tbody > tr > td, table
   border-top: none;
 }
 
-.content pre, .content h1 + blockquote, .content h2 + blockquote, .content h3 + blockquote{
+.content pre, .content h1 + blockquote, .content h2 + blockquote, .content h3 + blockquote {
   padding-top: 0;
 }
 
-.content h3, .content h4, .content h5, .content h6{
+.content h3, .content h4, .content h5, .content h6 {
   font-weight: bold;
 }
 
