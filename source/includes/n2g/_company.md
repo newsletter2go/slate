@@ -2,6 +2,8 @@
 
 > `GET` `https://api.newsletter2go.com/companies`
 
+<button class='btn btn-primary' onClick="Api.companies.get(this);"><span class="icon-control-play"></span> Play</button>
+
 ```json--payload
 {
     "payload": false

@@ -1,4 +1,4 @@
-# Recipients
+## Recipient
 
 ## Get All Kittens
 

@@ -2,16 +2,13 @@
 title: Newsletter Markup Language Documentation
 
 language_tabs:
-  - json--payload
-  - json--response
+  - shell: cURL
 
 includes:
   - n2g/introduction
-  - n2g/authentication
-  - n2g/status-codes
-  - n2g/filters
   - n2g/transactional-emails
   - n2g/resources
+  - n2g/authentication
   - n2g/company
   - n2g/user
   - n2g/list
@@ -21,6 +18,7 @@ includes:
   - n2g/newsletter
   - n2g/report
   - n2g/examples
+  - n2g/wrappers
 
 search: true
 ---

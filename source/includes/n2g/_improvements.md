@@ -1,0 +1,2 @@
+- JSON response bei oauth endpunkt unterscheidet sich
+- /newsletters/{id}/send sollte fuer transaktionsmails recipient_ids und group_ids akzeptieren

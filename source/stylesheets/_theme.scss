@@ -44,6 +44,7 @@ blockquote {
   font-style: normal;
   code {
     background: none;
+    color: $gray-lighter;
   }
 }
 
@@ -133,4 +134,22 @@ h1 > code, h2 > code, h3 > code {
   background: transparent;
   color: inherit;
   padding: 0;
+}
+
+code {
+  background-color: $gray-lighter;
+  color: $gray-dark;
+  padding: 1px 3px;
+}
+
+.toc-list-h1 code, .toc-list-h2 code {
+  background: none;
+  color: inherit;
+}
+
+.variable {
+  background-color: $n2g-nav-dark;
+  font-weight: bold;
+  color: $brand-primary;
+  padding: 4px;
 }
