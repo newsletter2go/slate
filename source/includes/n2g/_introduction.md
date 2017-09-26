@@ -5,9 +5,9 @@ Welcome and thanks for using Newsletter2Go.
 
 **Make this document interactive by inputting your API credentials here:**
 
-<input id="auth_key" type="text" class="form-control inline" placeholder="AUTH KEY">
-<input id="username" type="text" class="form-control inline" placeholder="USER NAME">
-<input id="password" type="password" class="form-control inline" placeholder="PASSWORD">
+<input id="auth_key" type="text" class="form-control inline" placeholder="AUTH KEY" value="oywuuifb_mA6VGP_QtPQpS_ZsKxNEqT_aQHso3UFwn:3kf9rpeb">
+<input id="username" type="text" class="form-control inline" placeholder="USER NAME" value="s@newsletter2go.com">
+<input id="password" type="password" class="form-control inline" placeholder="PASSWORD" value="aa123456">
 <button id="authenticate" class="btn btn-primary">Authenticate</button>
 
 Visit [https://ui.newsletter2go.com/api-client](https://ui.newsletter2go.com/api-client) if you already have an account but don't know your credentials yet.
@@ -83,7 +83,7 @@ The API always returns a `JSON` object with the properties `info` and `value`:
 ## Common `GET` parameters
 
 ```shell
-curl -X GET -H "Authorization: Bearer {{access_token}}" "https://api.newsletter2go.com/lists/{{list_id}}/recipients?_expand=false&_fields=email,first_name,last_name&_filter=email%3DLIKE%3D%22%25yahoo%25%22&_limit=10&_offset=0"
+curl -X GET -H "Authorization: Bearer {{auth.access_token}}" "https://api.newsletter2go.com/lists/{{list.id}}/recipients?_expand=false&_fields=email,first_name,last_name&_filter=email%3DLIKE%3D%22%25yahoo%25%22&_limit=10&_offset=0"
 ```
 
 The following parameters are all optional and can be used in every `GET` call in order to filter or limit the result sets.
@@ -103,7 +103,7 @@ The filter language for filtering results is based on [FIQL](https://tools.ietf.
 Otherwise they will be interpreted as attributes themselves, e.g. `first_name==last_name`</div>
 
 ```shell
-curl -X GET -H "Authorization: Bearer {{access_token}}" "https://api.newsletter2go.com/lists/{{list_id}}/recipients?_filter=email%3DLIKE%3D%22%25yahoo%25%22"
+curl -X GET -H "Authorization: Bearer {{auth.access_token}}" "https://api.newsletter2go.com/lists/{{list.id}}/recipients?_filter=email%3DLIKE%3D%22%25yahoo%25%22"
 ```
 
 <div class="alert alert-info">Make sure to <code>urlencode</code> the <code>_filter</code> parameter values when making a request</div>
@@ -132,19 +132,19 @@ The following operators are supported:
 > Step 1: Authenticate and acquire an access token
 
 ```shell
-curl -X POST -u {{auth_key}} -H "Content-Type: application/json" -d '{"username": "{{username}}", "password": "{{password}}", "grant_type": "https://nl2go.com/jwt"}' https://api.newsletter2go.com/oauth/v2/token
+curl -X POST -u {{auth.auth_key}} -H "Content-Type: application/json" -d '{"username": "{{auth.username}}", "password": "{{auth.password}}", "grant_type": "https://nl2go.com/jwt"}' https://api.newsletter2go.com/oauth/v2/token
 ```
 
 > Step 2: Store the `access_token` from the response
 
 ```json
 {
-   "access_token":"{{access_token}}",
+   "access_token":"{{auth.access_token}}",
    "expires_in":7200,
    "token_type":"bearer",
    "scope":null,
-   "refresh_token":"{{refresh_token}}",
-   "account_id":"{{account_id}}",
+   "refresh_token":"{{auth.refresh_token}}",
+   "account_id":"{{user.account_id}}",
    "type":"user"
 }
 ```
@@ -152,7 +152,7 @@ curl -X POST -u {{auth_key}} -H "Content-Type: application/json" -d '{"username"
 > Step 3: Pass the `access_token` in the `Authorization` header in each request
 
 ```shell
-curl -H "Authorization: Bearer {{access_token}}" -H "Content-Type: application/json" https://api.newsletter2go.com/companies
+curl -H "Authorization: Bearer {{auth.access_token}}" -H "Content-Type: application/json" https://api.newsletter2go.com/companies
 ```
 
 You will need your `user name`, your `password` and your `auth key` which you can find in [your account](https://ui.newsletter2go.com/api-client).

@@ -42,6 +42,9 @@ under the License.
       <%= javascript_include_tag  "all_nosearch" %>
     <% end %>
     <%= javascript_include_tag  "n2g" %>
+    <%= javascript_include_tag  "esprima" %>
+    <%= javascript_include_tag  "redeyed" %>
+    <%= javascript_include_tag  "peacock" %>
   </head>
 
   <body class="<%= page_classes %>" data-languages="<%=h language_tabs.map{ |lang| lang.is_a?(Hash) ? lang.keys.first : lang }.to_json %>">

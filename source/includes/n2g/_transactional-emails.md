@@ -7,18 +7,18 @@ Over the last couple of years we have optimized this process in order to offer t
 
 > Step 1: Create a transactional mailing (we recommend using our UI for that)
 
-> Step 2: Make sure it's active and copy the `newsletter_id` from the URL  
+> Step 2: Make sure it's active and copy the `newsletter.id` from the URL  
 
-> Step 3a: Send the mailing to a contact in your list (pass the `recipient_id`)
+> Step 3a: Send the mailing to a contact in your list (pass the `recipient.id`)
 
 ```shell
-curl -X POST -H "Content-Type: application/json" -H "Authorization: Bearer {{access_token}}" -d '{"contexts":[{"recipient":{"email":"{{recipient_id}}"}}]}' https://api.newsletter2go.com/newsletters/{{newsletter_id}}/send
+curl -X POST -H "Content-Type: application/json" -H "Authorization: Bearer {{auth.access_token}}" -d '{"contexts":[{"recipient":{"email":"{{recipient.id}}"}}]}' https://api.newsletter2go.com/newsletters/{{newsletter.id}}/send
 ```
 
 > Step 3b: Or send the mailing to any email address
 
 ```shell
-curl -X POST -H "Content-Type: application/json" -H "Authorization: Bearer {{access_token}}" -d '{"contexts":[{"recipient":{"id":"{{recipient_email}}"}}]}' https://api.newsletter2go.com/newsletters/{{newsletter_id}}/send
+curl -X POST -H "Content-Type: application/json" -H "Authorization: Bearer {{auth.access_token}}" -d '{"contexts":[{"recipient":{"id":"{{recipient.email}}"}}]}' https://api.newsletter2go.com/newsletters/{{newsletter.id}}/send
 ```
 
 

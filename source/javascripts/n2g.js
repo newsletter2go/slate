@@ -5,7 +5,7 @@ $(function () {
             "password": $("#password").val(),
             "auth_key": $("#auth_key").val()
         };
-        Helpers.replaceContent(auth);
+        Helpers.replaceContent(auth, "auth");
         Api.authorize(auth);
     });
     Helpers.highlightVariables();
@@ -15,10 +15,10 @@ var host = 'https://api.newsletter2go.com';
 var accessToken;
 
 var Helpers = {
-    replaceContent: function (data) {
+    replaceContent: function (data, resource) {
         var content = $(".content").html();
         $.each(data, function (key, value) {
-            var replace = "(<span[^<]*?>){0,1}{{(<\/span>){0,1}" + key + "(<span[^<]*?>){0,1}}}(<\/span>){0,1}";
+            var replace = "(<span[^<]*?>){0,1}{{(<\/span>){0,1}" + resource + "." + key + "(<span[^<]*?>){0,1}}}(<\/span>){0,1}";
             var regex = new RegExp(replace, "g");
             content = content.replace(regex, value);
         });
@@ -26,7 +26,7 @@ var Helpers = {
     },
     highlightVariables: function () {
         var content = $(".content").html();
-        var replace = "(<span[^<]*?>){0,1}{{(<\/span>){0,1}([a-zA-Z_]*?)(<span[^<]*?>){0,1}}}(<\/span>){0,1}";
+        var replace = "(<span[^<]*?>){0,1}{{(<\/span>){0,1}([a-zA-Z._]*?)(<span[^<]*?>){0,1}}}(<\/span>){0,1}";
         var regex = new RegExp(replace, "g");
         content = content.replace(regex, "<span class='variable'>{{$3}}</span>");
         $(".content").html(content);
@@ -44,22 +44,26 @@ var Api = {
             "password": auth.password
         };
         var successCallback = function (data) {
-            Helpers.replaceContent(data);
+            Helpers.replaceContent(data, "auth");
             accessToken = data.access_token;
             alert("You have successfully authenticated your account");
+            Api.makeCall(null, "GET", "/companies", {}, "company")
         };
         var errorCallback = function () {
             alert("Please check your credentials");
         };
         Api.xhr("POST", path, params, successCallback, errorCallback, authKey);
     },
-    companies: {
-        get: function (ele) {
-            var successCallback = function (data) {
-                $(ele).parent().siblings(".tab-json--response").first().html(JSON.stringify(data)).
-            };
-            Api.xhr("GET", "/companies", {}, successCallback)
-        }
+    makeCall: function (ele, method, path, params, resource) {
+        params = params || {};
+        var successCallback = function (data) {
+            if (ele) {
+                var code = $(peacock.highlight(JSON.stringify(data, null, 4))).find("pre").html();
+                $(ele).parent().siblings(".tab-json--response").first().html("<code>" + code + "</code>");
+            }
+            Helpers.replaceContent(data.value[0], resource);
+        };
+        Api.xhr(method, path, params, successCallback);
     },
     xhr: function (method, path, params, successCallback, errorCallback, auth) {
 

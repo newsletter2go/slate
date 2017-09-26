@@ -122,12 +122,23 @@ table > thead > tr > td, table > tbody > tr > th, table > tbody > tr > td, table
   border-top: none;
 }
 
+.content h3 {
+  clear: both;
+}
+
 .content pre, .content h1 + blockquote, .content h2 + blockquote, .content h3 + blockquote {
   padding-top: 0;
 }
 
 .content h3, .content h4, .content h5, .content h6 {
   font-weight: bold;
+}
+
+.content h4 {
+  text-transform: uppercase;
+  color: $gray;
+  font-weight: 400;
+  font-size: 12px;
 }
 
 h1 > code, h2 > code, h3 > code {
@@ -142,6 +153,10 @@ code {
   padding: 1px 3px;
 }
 
+code > .variable {
+  margin: 0 -3px;
+}
+
 .toc-list-h1 code, .toc-list-h2 code {
   background: none;
   color: inherit;
@@ -152,4 +167,8 @@ code {
   font-weight: bold;
   color: $brand-primary;
   padding: 4px;
+}
+
+td .label {
+  white-space: normal;
 }
